@@ -1,0 +1,247 @@
+
+{% extends 'adlayout.html' %}
+{% block content %}
+
+
+<form method="POST" action='/regstaff' enctype="multipart/form-data">
+<br>
+  <h2 align="center">Add Staff</h2>
+  <div class="well1 black" style="    width: 900px;
+  margin-left: 359px;
+  margin-top: 103px;">
+    <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+        {{form.hidden_tag()}}
+
+
+        <fieldset class="form-group" >
+        
+
+    
+          {{ form.fname.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.fname.errors %}
+                  {{ form.fname(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.fname.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.fname(class="form-control form-control-lg") }}
+         {% endif %}
+    </div>
+
+    {{ form.sname.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+       {% if form.sname.errors %}
+          {{ form.sname(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+          <div class="invalid-feedback" >
+          {% for error in form.sname.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+          {% else %}
+      {{ form.sname(class="form-control form-control-lg") }}
+ {% endif %}
+</div>
+
+
+{{ form.address.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+   {% if form.address.errors %}
+      {{ form.address(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.address.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+  {{ form.address(class="form-control form-control-lg") }}
+{% endif %}
+</div>
+
+          {{ form.gender.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.gender.errors %}
+                  {{ form.gender(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.gender.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.gender(class="form-control form-control-lg") }}
+         {% endif %}
+    </div>
+
+
+    {{ form.phone.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+        {% if form.phone.errors %}
+            {{ form.phone(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.phone.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.phone(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+
+
+    {{ form.district.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+        {% if form.district.errors %}
+            {{ form.district(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.district.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.district(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+
+   
+
+
+
+{{ form.position.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+  <select name="position">
+    <option  value="Assistant Agri.officer">Assistant Agri.officer</option>
+    <option  value="A Grede Staff">A Grede Staff</option>
+    <option  value="B Grade Staff">B Grade Staff</option>
+  </select>
+   {% if form.position.errors %}
+      {{ form.position(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.position.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+{% endif %}
+</div>
+
+
+
+
+{{ form.email.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+   {% if form.email.errors %}
+      {{ form.email(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.email.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+  {{ form.email(class="form-control form-control-lg") }}
+{% endif %}
+</div>
+{{ form.password.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+        {% if form.password.errors %}
+            {{ form.password(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.password(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+  
+    <div class="form-group">
+            {{ form.pic.label() }}
+            {{ form.pic(class="form-control-file") }}
+            {% if form.pic.errors %}
+                {% for error in form.pic.errors %}
+                    <span>{{ error }}</span></br>
+                {% endfor %}
+            {% endif %}
+      </div>
+      <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+      {% if action %}
+     <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">SAVE</button>
+      {% endif %}
+      </div>
+  </div>
+  </fieldset>
+</form>
+<br>
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid rgb(221, 221, 221);
+      padding: 4px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<table border="1" id ="customers" style="    width: 900px;
+margin-left: 250px;
+margin-top: 50px;">
+  <thead>
+    <tr>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>ADDRESS</th>
+      <th>GENDER</th>
+      <th>PHONE</th>
+      <th>DISTRICT</th>
+    
+      <th>POSITION</th>
+      <th>EMAIL</th>
+      <th>PICTURE</th>
+      <th>ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Pap in Pap %}
+    <tr>
+      <td>{{Pap.fname}}</td>
+      <td>{{Pap.sname}}</td>
+      <td>{{Pap.address}}</td>
+      <td>{{Pap.gender}}</td>
+      <td>{{Pap.phone}}</td>
+      <td>{{Pap.district}}</td>
+      
+      <td>{{Pap.position}}</td>
+      <td>{{Pap.email}}</td>
+      <td><img src="static/pics/{{Pap.img}}" class="img-fluid" alt="" style="height: 150px;width: 150px;"></td>
+      <td> <a href="regstaffdele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">DELETE</button></a> 
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br>
+
+
+{% endblock %}

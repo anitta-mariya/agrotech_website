@@ -1,0 +1,79 @@
+{% extends 'slayout.html' %}
+{% block content %}
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 4px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: rgb(229, 240, 236);
+    }
+    </style>
+    </head>
+    
+    <center><h1><font color="black">View SHM Registration</font></h1></center>
+  <table border="1" id ="customers" style="    width: 900px;
+  margin-left: 150px;
+  margin-top: 103px;">
+    <thead>
+        <tr>
+          
+          <th> NAME</th>
+         
+          <th>EMAIL ID</th>
+          <th>PHONE NUMBER</th>
+          
+          <th>BANK</th>
+          <th>ACCOUNT NUMBER</th>
+          <th>AREA</th>
+          <th>CROP ITEM</th>
+          <th>PICTURE</th>
+          <th>STATUS</th>
+          <th>VERIFY</th>
+          <th>REJECT</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for Pap in Pap %}
+        <tr>
+            
+          <td>{{Pap.name}}</td>
+         
+          <td>{{Pap.email}}</td>
+          <td>{{Pap.phone}}</td>
+         
+          <td>{{Pap.bank}}</td>
+          <td>{{Pap.accountnum}}</td>
+          <td>{{Pap.area}}</td>
+          <td>{{Pap.cropname}}</td>
+          
+          <td><img src="static/pics/{{Pap.img}}" class="img-fluid" alt="" style="height: 150px;width: 150px;"></td>
+          <td>{{Pap.verify}}</td>
+            
+          <td><a href="/varify_shm/{{Pap.id}}"> <button type="submit" class="btn btn-primary" value="addagent" >VERIFY</button></a>
+            
+            <td><a href="/view_shmdele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">REJECT</button></a>
+       
+          </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <br>
+{% endblock %}

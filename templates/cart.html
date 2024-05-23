@@ -1,0 +1,138 @@
+
+{% extends 'adlayout.html' %}
+{% block content %}
+
+
+<form method="POST" action='/cart' enctype="multipart/form-data">
+<br>
+  <h2 align="center">ADD TO CART</h2>
+  <div class="well1 white" style="    width: 900px;
+  margin-left: 359px;
+  margin-top: 103px;">
+    <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+        {{form.hidden_tag()}}
+
+
+        <fieldset class="form-group" >
+        
+
+   
+
+            {{ form.bcode.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.bcode.errors %}
+                  {{ form.bcode(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.bcode.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.bcode(class="form-control form-control-lg") }}
+            {% endif %}
+            </div>
+            
+            
+    
+          {{ form.bname.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.bname.errors %}
+                  {{ form.bname(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.bname.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.bname(class="form-control form-control-lg") }}
+         {% endif %}
+    </div>
+
+
+    {{ form.author.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.author.errors %}
+                  {{ form.author(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.author.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.author(class="form-control form-control-lg") }}
+         {% endif %}
+    </div>
+
+    {{ form.publication.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+       {% if form.publication.errors %}
+          {{ form.publication(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+          <div class="invalid-feedback" >
+          {% for error in form.publication.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+          {% else %}
+      {{ form.publication(class="form-control form-control-lg") }}
+ {% endif %}
+</div>
+
+
+    {{ form.pub_year.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+        {% if form.pub_year.errors %}
+            {{ form.pub_year(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.pub_year.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.pub_year(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+    
+
+{{ form.price.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+   {% if form.price.errors %}
+      {{ form.price(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.price.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+  {{ form.price(class="form-control form-control-lg") }}
+{% endif %}
+</div>
+
+
+    
+    <div class="form-group">
+            {{ form.img.label() }}
+            {{ form.img(class="form-control-file") }}
+            {% if form.img.errors %}
+                {% for error in form.img.errors %}
+                    <span>{{ error }}</span></br>
+                {% endfor %}
+            {% endif %}
+      </div>
+      <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+      {% if action %}
+     <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">SAVE</button>
+      {% endif %}
+      </div>
+  </div>
+  </fieldset>
+</form>
+<br>
+<head>
+   
+    </head>
+   
+
+
+{% endblock %}

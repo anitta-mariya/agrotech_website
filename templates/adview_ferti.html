@@ -1,0 +1,78 @@
+{% extends 'adlayout.html' %}
+{% block content %}
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 4px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 28px;
+      padding-bottom: 18px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: rgb(229, 240, 236);
+    }
+    </style>
+    </head>
+    
+    <center><h1><font color="white">View Users</font></h1></center>
+  <table border="1" id ="customers" style="    width: 900px;
+  margin-left: 250px;
+  margin-top: 103px;">
+    <thead>
+        <tr>
+          
+          <th> NAME</th>
+          <th>EMAIL ID</th>
+          <th>PHONE NUMBER</th>
+          <th>PANCHAYATH</th>
+          <th>AADHAR NUMBER</th>
+          
+          <th>CATEGORY</th>
+          <th>FARMER ID</th>
+         
+          <th>PICTURE</th>
+          <th>STATUS</th>
+          <th>APPROVAL</th>
+          <th>REMOVE</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        {% for Pap in Pap %}
+        <tr>
+            
+          <td>{{Pap.name}}</td> 
+          <td>{{Pap.email}}</td>
+          <td>{{Pap.phone}}</td>
+          <td>{{Pap.panchayath}}</td>
+          <td>{{Pap.aadharnum}}</td>
+          
+          <td>{{Pap.category}}</td>
+          <td>{{Pap.farmerid}}</td>
+          
+          
+          <td><img src="static/pics/{{Pap.img}}" class="img-fluid" alt="" style="height: 150px;width: 150px;"></td>
+          <td>{{Pap.status}}</td>
+          <td><a href="appr_ferti/{{Pap.id}}"> <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">APPROVE</button></a>
+            <td><a href="/adm_fertidele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">REMOVE</button></a>
+       
+          </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <br>
+{% endblock %}

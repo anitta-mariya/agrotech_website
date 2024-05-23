@@ -1,0 +1,80 @@
+{% extends 'adlayout.html' %}
+{% block content %}
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/farmer_view/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/farmer_view/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/farmer_view/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/farmer_view/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/farmer_view/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vvendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/farmer_view/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/farmer_view/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<style>
+		#customers {
+		  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+		#customers td, #customers th {
+		  border: 1px solid #ddd;
+		  padding: 4px;
+		}
+		
+		#customers tr:nth-child(even){background-color: #f2f2f2;}
+		
+		#customers tr:hover {background-color: #ddd;}
+		
+		#customers th {
+		  padding-top: 8px;
+		  padding-bottom: 8px;
+		  text-align: left;
+		  background-color: #4CAF50;
+		  color: white;
+		}
+		</style>
+		
+	<table border="1" id ="customers" style="    width: 900px;
+        margin-left: 250px;
+        margin-top: -400px;">
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>ADDRESS</th>  
+              <th>GENDER</th>
+              <th>EMAIL</th>
+              <th>PHONE NUMBER</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Pap in Pap %}
+            <tr>
+               
+              <td>{{Pap.name}}</td>
+              <td>{{Pap.address}}</td>             
+              <td>{{Pap.gender}}</td>
+              <td>{{Pap.email}}</td>
+              <td>{{Pap.phone}}</td>
+
+              
+              <td> <a href="addeventdele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">DELETE</button></a> 
+            </tr> 
+            {% endfor %}
+          </tbody>
+        </table>
+
+	
+
+<!--===============================================================================================-->	
+
+{% endblock %}

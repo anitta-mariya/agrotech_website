@@ -1,0 +1,165 @@
+{% extends 'adlayout.html' %}
+    {% block content %}
+    <form method="POST" action='' enctype="multipart/form-data">
+     
+        <br>
+          <h2 align="center">ADD NOTIFICATIONS</h2>
+          <div class="well1 white" style="    width: 900px;
+          margin-left: 250px;
+          margin-top: 50px;">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+            <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                {{form.hidden_tag()}}
+        
+        
+               
+                <fieldset class="form-group" >
+                
+        
+            
+                  {{ form.subject.label(class="form-control-label") }}
+                    <div class="form-group" style="border: 1px solid #b9adad !important">
+                       {% if form.subject.errors %}
+                          {{ form.subject(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                          <div class="invalid-feedback" >
+                          {% for error in form.subject.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                          </div>
+                          {% else %}
+                      {{ form.subject(class="form-control form-control-lg") }}
+                 {% endif %}
+            </div>
+        
+            {{ form.details.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.details.errors %}
+                  {{ form.details(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.details.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.details(class="form-control form-control-lg") }}
+         {% endif %}
+        </div>
+        
+                  {{ form.date.label(class="form-control-label") }}
+                    <div class="form-group" style="border: 1px solid #b9adad !important">
+                       {% if form.date.errors %}
+                          {{ form.date(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                          <div class="invalid-feedback" >
+                          {% for error in form.date.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                          </div>
+                          {% else %}
+                      {{ form.date(class="form-control form-control-lg") }}
+                 {% endif %}
+            </div>
+        
+        
+           
+
+            
+            {{ form.contactnum.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.contactnum.errors %}
+                    {{ form.contactnum(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.contactnum.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.contactnum(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+
+            {{ form.email.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+    
+              <div class="form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+              {% if action %}
+             <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">SAVE</button>
+              {% endif %}
+              </div>
+          </div>
+          </fieldset>
+        </form>
+        <br>
+        <head>
+            <style>
+            #customers {
+              font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 4px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 8px;
+              padding-bottom: 8px;
+              text-align: left;
+              background-color: #4CAF50;
+              color: white;
+            }
+            </style>
+            </head>
+        <table border="1" id ="customers" style="    width: 900px;
+        margin-left: 359px;
+        margin-top: 103px;">
+          <thead>
+            <tr>
+             
+              <th>TOPIC</th>
+              <th>DETAILS</th>
+              <th>EXPIRED DATE </th>
+              <th>CONTACT NUMBER</th>
+              <th>EMAIL ID</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Pap in Pap %}
+            <tr>
+               
+              <td>{{Pap.topic}}</td>
+              <td>{{Pap.details}}</td>
+              <td>{{Pap.date}}</td>
+              <td>{{Pap.contactnum}}</td>
+              <td>{{Pap.email}}</td>
+
+              
+              <td> <a href="addproddele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">DELETE</button></a> 
+            </tr> 
+            {% endfor %}
+          </tbody>
+        </table>
+        
+        <br>
+    
+
+    {% endblock %}

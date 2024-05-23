@@ -1,0 +1,184 @@
+{% extends 'adlayout.html' %}
+    {% block content %}
+    <form method="POST" action='' enctype="multipart/form-data">
+        <br>
+          <h2 align="center">ADD EVENTS</h2>
+          <div class="well1 white" style="    width: 900px;
+          margin-left: 359px;
+          margin-top: 103px;">
+            <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                {{form.hidden_tag()}}
+        
+        
+                <fieldset class="form-group" >
+                
+        
+            
+                  {{ form.eventname.label(class="form-control-label") }}
+                    <div class="form-group" style="border: 1px solid #b9adad !important">
+                       {% if form.eventname.errors %}
+                          {{ form.eventname(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                          <div class="invalid-feedback" >
+                          {% for error in form.eventname.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                          </div>
+                          {% else %}
+                      {{ form.eventname(class="form-control form-control-lg") }}
+                 {% endif %}
+            </div>
+        
+            {{ form.description.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.description.errors %}
+                  {{ form.description(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.description.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.description(class="form-control form-control-lg") }}
+         {% endif %}
+        </div>
+        
+                  {{ form.date.label(class="form-control-label") }}
+                    <div class="form-group" style="border: 1px solid #b9adad !important">
+                       {% if form.date.errors %}
+                          {{ form.date(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                          <div class="invalid-feedback" >
+                          {% for error in form.date.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                          </div>
+                          {% else %}
+                      {{ form.date(class="form-control form-control-lg") }}
+                 {% endif %}
+            </div>
+        
+        
+            {{ form.time.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.time.errors %}
+                    {{ form.time(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.time.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.time(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>  
+
+            {{ form.place.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.place.errors %}
+                    {{ form.place(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.place.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.place(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+            
+            {{ form.contactnum.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.contactnum.errors %}
+                    {{ form.contactnum(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.contactnum.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.contactnum(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+    
+            
+            <div class="form-group">
+                    {{ form.pic.label() }}
+                    {{ form.pic(class="form-control-file") }}
+                    {% if form.pic.errors %}
+                        {% for error in form.pic.errors %}
+                            <span>{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+              </div>
+              <div class="form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+              {% if action %}
+             <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">SAVE</button>
+              {% endif %}
+              </div>
+          </div>
+          </fieldset>
+        </form>
+        <br>
+        <head>
+            <style>
+            #customers {
+              font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 4px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 8px;
+              padding-bottom: 8px;
+              text-align: left;
+              background-color: #4CAF50;
+              color: white;
+            }
+            </style>
+            </head>
+        <table border="1" id ="customers" style="    width: 900px;
+        margin-left: 359px;
+        margin-top: 103px;">
+          <thead>
+            <tr>
+              <th>PICTURE</th>
+              <th>EVENT NAME</th>
+              <th>DESCRIPTION</th>
+              <th>DATE</th>
+              <th>TIME</th>
+              <th>PLACE</th>
+              <th>CONTACT NUMBER</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Pap in Pap %}
+            <tr>
+                <td><img src="static/pics/{{Pap.img}}" class="img-fluid" alt="" style="height: 150px;width: 150px;"></td>
+              <td>{{Pap.eventname}}</td>
+              <td>{{Pap.description}}</td>
+              <td>{{Pap.date}}</td>
+              <td>{{Pap.time}}</td>
+              <td>{{Pap.place}}</td>
+              <td>{{Pap.contactnum}}</td>
+
+              
+              <td> <a href="addeventdele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">DELETE</button></a> 
+            </tr> 
+            {% endfor %}
+          </tbody>
+        </table>
+        
+        <br>
+    
+
+    {% endblock %}

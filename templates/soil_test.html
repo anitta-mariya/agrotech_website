@@ -1,0 +1,117 @@
+
+{% extends 'adlayout.html' %}
+{% block content %}
+
+
+<form method="POST" action='/soil_test' enctype="multipart/form-data">
+<br>
+  <h2 align="center">Soil Test Centers</h2>
+  <div class="well1 white" style="    width: 900px;
+  margin-left: 359px;
+  margin-top: 103px;">
+    <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+        {{form.hidden_tag()}}
+
+
+        <fieldset class="form-group" >
+        
+
+    
+          {{ form.name.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.name.errors %}
+                  {{ form.name(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.name.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.name(class="form-control form-control-lg") }}
+         {% endif %}
+    </div>
+
+   
+
+{{ form.address.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+   {% if form.address.errors %}
+      {{ form.address(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.address.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+  {{ form.address(class="form-control form-control-lg") }}
+{% endif %}
+</div>
+
+
+
+            {{ form.contact.label(class="form-control-label") }}
+    <div class="form-group" style="border: 1px solid #b9adad !important">
+        {% if form.contact.errors %}
+            {{ form.contact(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.contact.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.contact(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+
+    
+{{ form.day.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+   {% if form.day.errors %}
+      {{ form.day(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.day.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+  {{ form.day(class="form-control form-control-lg") }}
+{% endif %}
+</div>
+
+
+{{ form.time.label(class="form-control-label") }}
+<div class="form-group" style="border: 1px solid #b9adad !important">
+   {% if form.time.errors %}
+      {{ form.time(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+      <div class="invalid-feedback" >
+      {% for error in form.time.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+      {% else %}
+  {{ form.time(class="form-control form-control-lg") }}
+{% endif %}
+</div>
+
+
+    
+    
+
+      <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+      {% if action %}
+     <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">SAVE</button>
+      {% endif %}
+      </div>
+  </div>
+  </fieldset>
+</form>
+<br>
+<head>
+   
+    </head>
+   
+
+
+{% endblock %}

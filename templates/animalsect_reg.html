@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+    {% block content %}
+    <body style=background-color:rgb(13,114,18)>
+    <form action="" method="POST" style="
+    border-left-width: 100‒;
+    width: 1300px;
+    height: 500px;
+    border-left-width: 2000px;
+    margin-top: 0px;
+    margin-left: 300px;
+">
+<br><br><br>
+<h1><font color="White"> Registration Form</font></h1><br>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><font color="White">Name</font></label>
+                                    <input class="input--style-4" type="text" name="name">
+                                </div>
+                            </div>&nbsp;
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><font color="White">Address</font></label>
+                                    <input class="input--style-4" type="text" name="address">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><font color="White">Gender:</font></label>
+                                    <div class="p-t-10">&nbsp;
+                                        <label class="radio-container m-r-45"><font color="White" >Male</font>
+                                            <input type="radio"  name="gender" value="male">
+                                            <span class="checkmark"></span>
+                                        </label>&nbsp;&nbsp;
+                                        <label class="radio-container"><font color="White" >Female</font>
+                                            <input type="radio" name="gender" value="female">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><font color="White">Email</font></label>
+                                    <input class="input--style-4" type="email" name="email">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><font color="White">Phone</font></label>
+                                    <input class="input--style-4" type="text" name="phone">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><font color="White">Password</font></label>
+                                    <input class="input--style-4" type="password" name="password">
+                                </div>
+                            </div>
+                        </div>
+                                               <div class="p-t-15"><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <button class="btn btn--radius-2 btn--blue" type="submit"><center><font color="white">Submit</font></center></button>
+                        </div>
+                    </form>
+                </body>
+    {% endblock %}

@@ -1,0 +1,76 @@
+
+{% extends 'flayout.html' %}
+{% block content %}
+<br><br>
+<style>
+body{
+	background-image: "..static/home/images/16.jpg";
+}
+</style>
+	
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+                   
+					<h1><font color="black"><h1>VIEW NOTIFICATION </h1></font></h1>
+				</div>
+			</div><br><br>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th><b>SUBJECT</b></th>
+						      <th><b>DETAILS</b></th>
+							  
+						      <th><b>EXPRIED DATE</b></th>
+							  <th><b>CONTACT NUMBER</b></th>
+						      <th><b>EMAIL ID</b></th>
+						      
+						      
+						    </tr>
+						  </thead>
+						  <tbody>
+						    {% for Pap in Pap %}
+        <tr>
+            
+          <td>{{Pap.subject}}</td>
+          
+          
+          <td>{{Pap.details}}</td>
+         
+		  
+          <td>{{Pap.date}}</td>
+		
+		  <td>{{Pap.contactnum}}</td>
+		  <td>{{Pap.email}}</td>
+          
+          
+          
+         
+          
+          
+          
+          </tr> 
+        {% endfor %}
+      
+						   						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><br><br><br><br><br><br>
+
+	<script src="../static/soiltest/js/jquery.min.js"></script>
+  <script src="../static/soiltest/js/popper.js"></script>
+  <script src="../static/soiltest/js/bootstrap.min.js"></script>
+  <script src="../static/soiltest/js/main.js"></script>
+
+
+
+
+	{% endblock %}
+

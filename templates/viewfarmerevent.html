@@ -1,0 +1,63 @@
+{% extends 'flayout.html' %}
+{% block content %}
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 4px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: rgb(229, 240, 236);
+    }
+    </style>
+    </head>
+    
+    <center><h1><font color="white">View Users</font></h1></center>
+  <table border="1" id ="customers" style="    width: 900px;
+  margin-left: 359px;
+  margin-top: 103px;">
+    <thead>
+        <tr>
+          <th>PICTURE</th>
+          <th>EVENT NAME</th>
+          <th>DESCRIPTION</th>
+          <th>DATE</th>
+          <th>TIME</th>
+          <th>PLACE</th>
+          <th>CONTACT NUMBER</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for Pap in Pap %}
+        <tr>
+            <td><img src="static/pics/{{Pap.img}}" class="img-fluid" alt="" style="height: 150px;width: 150px;"></td>
+          <td>{{Pap.eventname}}</td>
+          <td>{{Pap.description}}</td>
+          <td>{{Pap.date}}</td>
+          <td>{{Pap.time}}</td>
+          <td>{{Pap.place}}</td>
+          <td>{{Pap.contactnum}}</td>
+          <td>  <a href="/regfarmer"></a><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">PAY</button></a>
+        </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <br>
+{% endblock %}

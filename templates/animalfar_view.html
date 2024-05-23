@@ -1,0 +1,64 @@
+{% extends 'slayout.html' %}
+{% block content %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<body>
+	<style>
+		#customers {
+		  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+		#customers td, #customers th {
+		  border: 1px solid #ddd;
+		  padding: 4px;
+		}
+		
+		#customers tr:nth-child(even){background-color: #f2f2f2;}
+		
+		#customers tr:hover {background-color: #ddd;}
+		
+		#customers th {
+		  padding-top: 8px;
+		  padding-bottom: 8px;
+		  text-align: left;
+		  background-color: #4CAF50;
+		  color: white;
+		}
+		</style>
+		
+	<table border="1" id ="customers" style="    width: 900px;
+        margin-left: 250px;
+        margin-top: -400px;">
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>ADDRESS</th>
+              <th>GENDER</th>
+              <th>EMAIL</th>
+              <th>PHONE NUMBER</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            {% for Pap in Pap %}
+            <tr>
+               
+              <td>{{Pap.name}}</td>
+              <td>{{Pap.address}}</td>
+              <td>{{Pap.gender}}</td>
+              <td>{{Pap.email}}</td>
+              <td>{{Pap.phone}}</td>
+            
+
+
+             
+            </tr> 
+            {% endfor %}
+          </tbody>
+        </table>
+
+	
+        {% endblock %}
+	
+

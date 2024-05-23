@@ -1,0 +1,78 @@
+
+{% extends 'flayout.html' %}
+{% block content %}
+  
+<style>
+body{
+	background-image: "..static/home/images/image_2.jpg";
+}
+</style>
+	
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;Best Agriculture Training Centers In Kerala</h2>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th><b>Name of center</b></th>
+						      <th><b>Center Address</b></th>
+							  <th><b>Name of Programmer </b></th>
+						      <th><b>contact number </b></th>
+							  <th><b>Date of Program</b></th>
+						      <th><b>Time of Program</b></th>
+						      <th><b>Topic of program</b></th>
+						      <th><b>Booking Now</b></th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    {% for Pap in Pap %}
+        <tr>
+            
+          <td>{{Pap.name}}</td>
+          
+          
+          <td>{{Pap.address}}</td>
+         
+		  
+          <td>{{Pap.programer}}</td>
+          <td>{{Pap.contact}}</td>
+		  <td>{{Pap.date}}</td>
+		  <td>{{Pap.time}}</td>
+          
+          <td>{{Pap.topic}}</td>
+          
+         
+          
+          
+          <td><a href="/booking_trainingclass/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">Booking</button></a>
+           
+          </tr> 
+        {% endfor %}
+      
+						   						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="../static/soiltest/js/jquery.min.js"></script>
+  <script src="../static/soiltest/js/popper.js"></script>
+  <script src="../static/soiltest/js/bootstrap.min.js"></script>
+  <script src="../static/soiltest/js/main.js"></script>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+	{% endblock %}
+

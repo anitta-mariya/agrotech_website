@@ -1,0 +1,173 @@
+{% extends 'flayout.html' %}
+    {% block content %}
+    <form method="POST" action='' enctype="multipart/form-data">
+     
+        <br>
+          <h2 align="center">Add Your Products</h2>
+          <div class="well1 white" style="    width: 900px;
+          margin-left: 250px;
+          margin-top: 50px;">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+            <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                {{form.hidden_tag()}}
+        
+        
+               
+                <fieldset class="form-group" >
+                
+        
+            
+                  {{ form.productname.label(class="form-control-label") }}
+                    <div class="form-group" style="border: 1px solid #b9adad !important">
+                       {% if form.productname.errors %}
+                          {{ form.productname(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                          <div class="invalid-feedback" >
+                          {% for error in form.productname.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                          </div>
+                          {% else %}
+                      {{ form.productname(class="form-control form-control-lg") }}
+                 {% endif %}
+            </div>
+        
+            {{ form.productcat.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+               {% if form.productcat.errors %}
+                  {{ form.productcat(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                  <div class="invalid-feedback" >
+                  {% for error in form.productcat.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                  </div>
+                  {% else %}
+              {{ form.productcat(class="form-control form-control-lg") }}
+         {% endif %}
+        </div>
+        
+                  {{ form.features.label(class="form-control-label") }}
+                    <div class="form-group" style="border: 1px solid #b9adad !important">
+                       {% if form.features.errors %}
+                          {{ form.features(class="form-control1 ng-invalid ng-invalid-required ng-touched") }}
+                          <div class="invalid-feedback" >
+                          {% for error in form.features.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                          </div>
+                          {% else %}
+                      {{ form.features(class="form-control form-control-lg") }}
+                 {% endif %}
+            </div>
+        
+        
+            {{ form.price.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.price.errors %}
+                    {{ form.price(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.price.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.price(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>  
+
+            
+            {{ form.contactnum.label(class="form-control-label") }}
+            <div class="form-group" style="border: 1px solid #b9adad !important">
+                {% if form.contactnum.errors %}
+                    {{ form.contactnum(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.contactnum.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.contactnum(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+    
+            
+            <div class="form-group">
+                    {{ form.pic.label() }}
+                    {{ form.pic(class="form-control-file") }}
+                    {% if form.pic.errors %}
+                        {% for error in form.pic.errors %}
+                            <span>{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+              </div>
+              <div class="form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+              {% if action %}
+             <button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">SAVE</button>
+              {% endif %}
+              </div>
+          </div>
+          </fieldset>
+        </form>
+        <br>
+        <head>
+            <style>
+            #customers {
+              font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 4px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 8px;
+              padding-bottom: 8px;
+              text-align: left;
+              background-color: #4CAF50;
+              color: white;
+            }
+            </style>
+            </head>
+        <table border="1" id ="customers" style="    width: 900px;
+        margin-left: 359px;
+        margin-top: 103px;">
+          <thead>
+            <tr>
+              <th>PICTURE</th>
+              <th>PRODUCT NAME</th>
+              <th>PRODUCT CATEGORY</th>
+              <th>FEATURES</th>
+              <th>PRICE</th>
+              <th>CONTACT NUMBER</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Pap in Pap %}
+            <tr>
+                <td><img src="static/pics/{{Pap.img}}" class="img-fluid" alt="" style="height: 150px;width: 150px;"></td>
+              <td>{{Pap.productname}}</td>
+              <td>{{Pap.productcat}}</td>
+              <td>{{Pap.features}}</td>
+              <td>{{Pap.price}}</td>
+              <td>{{Pap.contactnum}}</td>
+
+              
+              <td> <a href="addproddele/{{Pap.id}}"><button type="submit" class="btn btn-primary" value="addagent" onclick="myFunction()">DELETE</button></a> 
+            </tr> 
+            {% endfor %}
+          </tbody>
+        </table>
+        
+        <br>
+    
+
+    {% endblock %}
